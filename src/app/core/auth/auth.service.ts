@@ -9,6 +9,8 @@ import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +21,8 @@ export class AuthService {
   constructor(
     private auth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private platformLocation: PlatformLocation
   ) {
     this.user = this.auth.authState.pipe(
       switchMap((user) => {
@@ -41,7 +44,7 @@ export class AuthService {
     await user.updateProfile({
       displayName,
     });
-    return this.updateUserData(user);
+    return await this.updateUserData(user);
   }
 
   async emailSignIn(email: string, password: string) {
@@ -49,7 +52,7 @@ export class AuthService {
       email,
       password
     );
-    return this.updateUserData(credential.user!);
+    return await this.updateUserData(credential.user!);
   }
 
   async signOut() {
@@ -57,7 +60,26 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  private updateUserData(user: firebase.User) {
+  async handleResetPassword(actionCode: string, lang: string) {
+    const email = await this.auth.verifyPasswordResetCode(actionCode);
+
+    // TODO: prompt user for new password
+    const newPassword = 'test1234';
+
+    return await this.auth.confirmPasswordReset(actionCode, newPassword);
+  }
+
+  async handleRecoverEmail(actionCode: string, lang: string) {
+    const info = await this.auth.checkActionCode(actionCode);
+    const restoredEmail = info.data.email;
+    return await this.auth.applyActionCode(actionCode);
+  }
+
+  async handleVerifyEmail(actionCode: string, lang: string) {
+    return await this.auth.applyActionCode(actionCode);
+  }
+
+  private async updateUserData(user: firebase.User) {
     // TODO: simplify
     const data: User = {
       uid: user.uid,
@@ -68,6 +90,12 @@ export class AuthService {
       phoneNumber: user.phoneNumber || '',
       photoURL: user.photoURL || '',
     };
+
+    if (!user.emailVerified) {
+      await user.sendEmailVerification({
+        url: `${environment.url}/dashboard`,
+      });
+    }
 
     return this.firestore
       .doc<User>(`users/${user.uid}`)

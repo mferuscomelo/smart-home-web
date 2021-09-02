@@ -3,15 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
 
-import { canActivate } from '@angular/fire/compat/auth-guard';
 import {
+  canActivate,
   redirectUnauthorizedTo,
   redirectLoggedInTo,
 } from '@angular/fire/compat/auth-guard';
 
 const redirectUnauthorizedToLogin = () =>
   redirectUnauthorizedTo(['/auth/login']);
-const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
 
 const routes: Routes = [
   {
@@ -24,7 +23,6 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
-    ...canActivate(redirectLoggedInToDashboard),
   },
   {
     path: '',

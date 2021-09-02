@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  url: 'https://dorm.mferuscomelo.com',
   firebaseConfig: {
     apiKey: 'AIzaSyAKf_7vnJNeeGfnrS99RvZ-WaE4ge68JFM',
     authDomain: 'smart-home-7c688.firebaseapp.com',
