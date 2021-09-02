@@ -5,6 +5,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
   errorMessage = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -43,6 +44,8 @@ export class RegisterComponent implements OnInit {
           this.email.value,
           this.password.value
         );
+
+        this.router.navigate(['dashboard']);
       } catch (error) {
         // TODO: improve messages
         switch (error.code) {
