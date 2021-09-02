@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   errorMessage = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -38,6 +39,8 @@ export class LoginComponent implements OnInit {
           this.email.value,
           this.password.value
         );
+
+        this.router.navigate(['dashboard']);
       } catch (error) {
         // TODO: improve messages
         switch (error.code) {
