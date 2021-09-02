@@ -1,3 +1,4 @@
+// TODO: clean up imports
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
@@ -23,9 +24,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './core/header/header.component';
 import { NavComponent } from './core/nav/nav.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent, AuthLayoutComponent, ContentLayoutComponent, HeaderComponent, NavComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    AuthLayoutComponent,
+    ContentLayoutComponent,
+    HeaderComponent,
+    NavComponent,
+    FooterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,6 +44,7 @@ import { FooterComponent } from './core/footer/footer.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [
     ScreenTrackingService,

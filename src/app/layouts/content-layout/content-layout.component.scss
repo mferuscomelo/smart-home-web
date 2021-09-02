@@ -1,6 +1,8 @@
+@import "src/styles/variables";
+
 .grid {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 125px 1fr;
   grid-template-rows: 50px 1fr 50px;
   grid-template-areas:
     "sidenav header"
@@ -11,5 +13,5 @@
 
 main {
   grid-area: main;
-  background-color: #8fd4d9;
+  background: linear-gradient(to right, $bg-light 0%, $bg-dark 100%);
 }
