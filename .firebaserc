@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "smart-home-7c688": {
+      "hosting": {
+        "smart-home-web": [
+          "smart-home-7c688"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "smart-home-7c688"
+  }
+}
