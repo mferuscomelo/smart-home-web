@@ -32,6 +32,18 @@ export class AuthService {
     );
   }
 
+  async emailSignUp(displayName: string, email: string, password: string) {
+    const credential = await this.auth.createUserWithEmailAndPassword(
+      email,
+      password
+    );
+    const user = credential.user!;
+    await user.updateProfile({
+      displayName,
+    });
+    return this.updateUserData(user);
+  }
+
   async emailSignIn(email: string, password: string) {
     const credential = await this.auth.signInWithEmailAndPassword(
       email,
