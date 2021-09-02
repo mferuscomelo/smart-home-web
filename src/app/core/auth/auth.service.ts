@@ -80,6 +80,7 @@ export class AuthService {
   }
 
   private async updateUserData(user: firebase.User) {
+    // TODO: update user data after custom email action handler
     // TODO: simplify
     const data: User = {
       uid: user.uid,
