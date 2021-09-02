@@ -15,15 +15,23 @@ import {
   AngularFirePerformanceModule,
   PerformanceMonitoringService,
 } from '@angular/fire/compat/performance';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AuthLayoutComponent, ContentLayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAnalyticsModule,
     AngularFirePerformanceModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ScreenTrackingService,
