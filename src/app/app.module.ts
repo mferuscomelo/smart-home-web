@@ -20,9 +20,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './core/header/header.component';
+import { NavComponent } from './core/nav/nav.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthLayoutComponent, ContentLayoutComponent],
+  declarations: [AppComponent, AuthLayoutComponent, ContentLayoutComponent, HeaderComponent, NavComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
