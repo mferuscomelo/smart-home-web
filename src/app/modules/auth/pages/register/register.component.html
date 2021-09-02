@@ -1,1 +1,23 @@
-<p>register works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="displayName" placeholder="John Smith" formControlName="displayName" required>
+        <mat-error *ngIf="displayName.invalid">{{ getErrorMessage(displayName) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="john@example.com" formControlName="email" required>
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage(email) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="password.invalid">{{ getErrorMessage(password) }}</mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-flat-button color="primary">Register</button>
+</form>
+
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
