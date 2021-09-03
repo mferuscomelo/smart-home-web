@@ -16,3 +16,7 @@ body {
   color: $white;
   background: linear-gradient(to right, $bg-light 0%, $bg-dark 100%);
 }
+
+* {
+  box-sizing: border-box;
+}
