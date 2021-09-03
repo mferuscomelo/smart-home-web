@@ -42,13 +42,21 @@
     }
 }
 
-#notifications {
-    grid-column: 5 / 7;
+#notifications,
+#weather {
     grid-row: 2 / 4;
 
     mat-card {
         height: 100%;
     }
+}
+
+#notifications {
+    grid-column: 5 / 7;
+}
+
+#weather {
+    grid-column: 7 / -1;
 }
 
 .devices,
