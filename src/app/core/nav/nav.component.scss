@@ -31,7 +31,7 @@ nav {
 
 .nav-item,
 .logo {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
 }
 
 .nav-link {
@@ -41,8 +41,13 @@ nav {
   flex-direction: column;
 
   text-align: center;
-
   color: $white;
+  height: 125px;
+
+  &.active {
+    background-color: $bg-light;
+    box-shadow: inset 5px 0px 10px 0px $bg-dark;
+  }
 
   small {
     margin-top: 0.5rem;
