@@ -2,16 +2,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 125px 1fr;
-  grid-template-rows: 50px 1fr 50px;
-  grid-template-areas:
-    "sidenav header"
-    "sidenav main"
-    "sidenav footer";
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 1.5rem;
+  // grid-template-rows: 50px 1fr 50px;
   height: 100vh;
 }
 
 main {
-  grid-area: main;
-  background: linear-gradient(to right, $bg-light 0%, $bg-dark 100%);
+  grid-column: 2 / -1;
+  padding: 1.5rem 1.5rem 1.5rem 0;
 }
