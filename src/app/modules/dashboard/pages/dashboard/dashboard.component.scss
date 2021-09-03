@@ -1,6 +1,6 @@
 :host {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(5, 1fr);
     column-gap: 1.5rem;
     row-gap: 1.5rem;
@@ -31,6 +31,15 @@
 
 #humidity {
     grid-column: 3 / 5;
+}
+
+#power {
+    grid-row: 4 / -1;
+    grid-column: 1 / 5;
+
+    mat-card {
+        height: 100%;
+    }
 }
 
 .devices,
