@@ -26,6 +26,10 @@ import { NavComponent } from './core/nav/nav.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 
+import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
+import { USE_EMULATOR as USE_DATABASE_EMULATOR } from '@angular/fire/compat/database';
+import { USE_EMULATOR as USE_FIRESTORE_EMULATOR } from '@angular/fire/compat/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,24 @@ import { MatIconModule } from '@angular/material/icon';
     ScreenTrackingService,
     UserTrackingService,
     PerformanceMonitoringService,
+    {
+      provide: USE_AUTH_EMULATOR,
+      useValue: environment.useEmulators
+        ? ['http://localhost', 9099]
+        : undefined,
+    },
+    {
+      provide: USE_DATABASE_EMULATOR,
+      useValue: environment.useEmulators
+        ? ['http://localhost', 9000]
+        : undefined,
+    },
+    {
+      provide: USE_FIRESTORE_EMULATOR,
+      useValue: environment.useEmulators
+        ? ['http://localhost', 8080]
+        : undefined,
+    },
   ],
   bootstrap: [AppComponent],
 })
