@@ -21,6 +21,7 @@ body {
   box-sizing: border-box;
 }
 
-mat-card {
+mat-card,
+.mat-menu-panel {
   background: $fg-gray !important;
 }
