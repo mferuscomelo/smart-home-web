@@ -7,8 +7,19 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   column-gap: 1.5rem;
+  row-gap: 0.5rem;
 
   padding-top: 1.5rem;
+}
+
+#date {
+  grid-row: 2;
+  grid-column: 1/7;
+
+  .current-date {
+    margin: 0;
+    text-transform: uppercase;
+  }
 }
 
 #search {

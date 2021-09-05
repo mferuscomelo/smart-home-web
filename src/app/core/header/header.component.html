@@ -5,6 +5,12 @@
     </div>
 </section>
 
+<section id="date">
+    <p class="current-date">
+        {{ currentDate | date:'hh:mm a EEEE, dd MMMM - y' }}
+    </p>
+</section>
+
 <section id="profile" *ngIf="authService.user | async as user">
     <div class="dropdown-button" [matMenuTriggerFor]="profileMenu">
         <p>{{ user.displayName }}</p>

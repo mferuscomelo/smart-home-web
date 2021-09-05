@@ -7,6 +7,8 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  currentDate = new Date();
+
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
