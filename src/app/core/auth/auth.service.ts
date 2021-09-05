@@ -5,9 +5,9 @@ import { User } from 'src/app/shared/models/user.model';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import firebase from 'firebase/compat/app';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import firebase from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { PlatformLocation } from '@angular/common';
 import { environment } from 'src/environments/environment';

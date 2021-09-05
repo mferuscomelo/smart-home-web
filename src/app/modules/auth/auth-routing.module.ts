@@ -5,10 +5,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
-import {
-  canActivate,
-  redirectLoggedInTo,
-} from '@angular/fire/compat/auth-guard';
+import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
 
