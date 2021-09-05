@@ -17,14 +17,19 @@ $smart-home-web-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 // The warn palette is optional (defaults to red).
 $smart-home-web-warn: mat.define-palette(mat.$red-palette);
 
+$smart-home-typography: mat.define-typography-config(
+  $font-family: 'Montserrat',
+);
+
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$smart-home-web-theme: mat.define-light-theme((
+$smart-home-web-theme: mat.define-dark-theme((
   color: (
     primary: $smart-home-web-primary,
     accent: $smart-home-web-accent,
     warn: $smart-home-web-warn,
-  )
+  ),
+  typography: $smart-home-typography
 ));
 
 // Include theme styles for core and each component used in your app.
