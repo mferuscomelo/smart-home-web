@@ -1,3 +1,10 @@
+<section id="search">
+    <div class="input-container">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="What can I help you with?">
+    </div>
+</section>
+
 <section id="profile" *ngIf="authService.user | async as user">
     <div class="dropdown-button" [matMenuTriggerFor]="profileMenu">
         <p>{{ user.displayName }}</p>

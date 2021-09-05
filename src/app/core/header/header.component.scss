@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 :host {
   grid-row: 1;
   grid-column: 2 / -1;
@@ -9,8 +11,47 @@
   padding-top: 1.5rem;
 }
 
+#search {
+  grid-column: 1 / 7;
+
+  .input-container {
+    width: 100%;
+    background: $fg-gray;
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 0.5rem;
+
+    input {
+      border: 0;
+      border-radius: 4px;
+  
+      font-size: 1rem;
+      width: 100%;
+
+      margin-left: 0.5rem;
+      padding: 0.5rem 0;
+      
+      background: $fg-gray;
+      color: $white;
+
+      &:focus{
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $white;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
 #profile {
-  grid-column: 7/-1;
+  grid-column: 7 / -1;
 }
 
 .dropdown-button {
