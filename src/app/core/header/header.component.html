@@ -1,1 +1,16 @@
-<p>header works!</p>
+<section id="profile" *ngIf="authService.user | async as user">
+    <div class="dropdown-button" [matMenuTriggerFor]="profileMenu">
+        <p>{{ user.displayName }}</p>
+        <mat-icon aria-hidden="false" aria-label="Profile Dropdown">expand_more</mat-icon>
+    </div>
+    <mat-menu #profileMenu="matMenu" xPosition="before">
+        <button mat-menu-item routerLink="settings">
+            <mat-icon aria-hidden="false" aria-label="Settings Icon">settings</mat-icon>
+            Settings
+        </button>
+        <button mat-menu-item (click)="authService.signOut()">
+            <mat-icon aria-hidden="false" aria-label="Log out icon">logout</mat-icon>
+            Log Out
+        </button>
+    </mat-menu>
+</section>
