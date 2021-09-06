@@ -26,19 +26,18 @@
         height: 100%;
 
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
 
         .icon-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            flex-grow: 1;
         }
 
         mat-icon {
             font-size: 5rem;
-            margin: -2rem;
+            margin: -2rem 0;
         }
 
         .title {
@@ -78,8 +77,14 @@
 #humidity {
     grid-column: 3 / 5;
 
-    mat-card h1::after {
-        content: "%";
+    mat-card {
+        .icon-container {
+            margin-right: 1rem;
+        }
+
+        h1::after {
+            content: "%";
+        }
     }
 }
 
