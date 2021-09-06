@@ -12,10 +12,14 @@ import { DBResponse } from 'src/app/shared/models/db.model';
 export class DashboardComponent implements OnInit {
   temperatureList: Observable<DBResponse[]>;
   humidityList: Observable<DBResponse[]>;
+  notificationsList: Observable<DBResponse[]>;
 
   constructor(private db: AngularFireDatabase) {
     this.temperatureList = db.list<DBResponse>('temperature').valueChanges();
     this.humidityList = db.list<DBResponse>('humidity').valueChanges();
+    this.notificationsList = db
+      .list<DBResponse>('notifications')
+      .valueChanges();
   }
 
   ngOnInit(): void {}
