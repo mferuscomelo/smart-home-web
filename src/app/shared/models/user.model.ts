@@ -1,3 +1,5 @@
+import { Device } from './device.model';
+
 export interface User {
   uid: string;
   email: string;
@@ -6,4 +8,5 @@ export interface User {
   isAnonymous: boolean;
   phoneNumber?: string;
   photoURL?: string;
+  devices?: Device[];
 }

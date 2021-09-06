@@ -9,7 +9,15 @@ import { AuthService } from '../auth/auth.service';
 export class HeaderComponent implements OnInit {
   currentDate = new Date();
 
-  constructor(public authService: AuthService) {}
+  status: 'ok' | 'error' = 'ok';
+
+  constructor(public authService: AuthService) {
+    this.authService.user.subscribe((user) => {
+      this.status = user?.devices?.every((x) => x.status == 'OK')
+        ? 'ok'
+        : 'error';
+    });
+  }
 
   ngOnInit(): void {}
 }
