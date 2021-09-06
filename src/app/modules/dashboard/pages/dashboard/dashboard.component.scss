@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 :host {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -27,6 +29,44 @@
 
 #temperature {
     grid-column: 1 / 3;
+
+    mat-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        mat-icon {
+            font-size: 5rem;
+            margin: -2rem;
+        }
+
+        .title {
+            opacity: 0.5;
+        }
+
+        h1 {
+            margin: 0;
+            
+            &::before {
+                content: "+";
+                font-size: 1.75rem;
+                margin-right: -0.5rem;
+            }
+
+            &::after {
+                content: "°C";
+                font-size: 1.75rem;
+                margin-left: -0.5rem;
+            }
+        }
+    }
 }
 
 #humidity {
