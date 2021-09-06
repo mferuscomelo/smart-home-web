@@ -135,16 +135,22 @@
     .rain {
       & span::after {
         content: '%';
-        font-size: 0.75rem;
-        opacity: 0.5;
       }
     }
 
     .wind {
       & span::after {
         content: 'kph';
+      }
+    }
+
+    .wind,
+    .rain,
+    .humidity {
+      & span::after {
         font-size: 0.75rem;
         opacity: 0.5;
+        margin-left: 0.25rem;
       }
     }
 
