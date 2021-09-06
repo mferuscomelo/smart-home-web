@@ -12,9 +12,11 @@
 </section>
 
 <section id="profile" *ngIf="authService.user | async as user">
-    <div class="dropdown-button" [matMenuTriggerFor]="profileMenu">
-        <p>{{ user.displayName }}</p>
-        <mat-icon aria-hidden="false" aria-label="Profile Dropdown">expand_more</mat-icon>
+    <div class="dropdown-button">
+        <div class="container" [matMenuTriggerFor]="profileMenu">
+            <p>{{ user.displayName }}</p>
+            <mat-icon aria-hidden="false" aria-label="Profile Dropdown">expand_more</mat-icon>
+        </div>
     </div>
     <mat-menu #profileMenu="matMenu" xPosition="before">
         <button mat-menu-item routerLink="settings">

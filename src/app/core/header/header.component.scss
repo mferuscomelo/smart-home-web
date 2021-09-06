@@ -70,7 +70,13 @@
   justify-content: flex-end;
   align-items: center;
 
-  cursor: pointer;
+  .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+    cursor: pointer;
+  }
 
   p {
     margin: 0 0.25rem 0 0;
