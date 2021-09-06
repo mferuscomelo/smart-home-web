@@ -65,13 +65,46 @@
   grid-column: 6;
 
   mat-card {
-    border: 1px solid $green;
     padding: 0.5rem;
     
-    p {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    &.ok {
       color: $green;
+      border: 1px solid $green;
+
+      .ok-symbol {
+        display: block;
+      }
+
+      .error-symbol {
+        display: none;
+      }
+    }
+
+    &.error {
+      color: $red;
+      border: 1px solid $red;
+
+      .ok-symbol {
+        display: none;
+      }
+
+      .error-symbol {
+        display: block;
+      }
+    }
+
+    mat-icon {
+      margin: -1rem 0;
+    }
+    
+    p {
       line-height: 1;
       text-align: center;
+      margin: 0;
     }
   }
 }
