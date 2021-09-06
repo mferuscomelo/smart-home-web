@@ -28,6 +28,7 @@ import { FooterComponent } from './core/footer/footer.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 
 import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
 import { USE_EMULATOR as USE_DATABASE_EMULATOR } from '@angular/fire/database';
@@ -53,6 +54,7 @@ import { USE_EMULATOR as USE_FIRESTORE_EMULATOR } from '@angular/fire/firestore'
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
+    MatCardModule,
   ],
   providers: [
     ScreenTrackingService,
