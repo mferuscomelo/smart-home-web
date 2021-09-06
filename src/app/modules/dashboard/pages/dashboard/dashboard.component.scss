@@ -106,6 +106,20 @@
   }
 }
 
+#img {
+  grid-column: 7 / -1;
+  grid-row: 3 / -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 #notifications {
   grid-row: 1 / -1;
   grid-column: 5 / 7;
