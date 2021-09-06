@@ -22,11 +22,7 @@ export class WeatherService {
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.805563&lon=9.213399&exclude=${excludeParts}&appid=${environment.openWeatherApiKey}&units=metric`;
 
     this.http.get<WeatherData>(url).subscribe((data) => {
-      console.log(data);
-
       const unixTime = Math.round(new Date().getTime() / 1000);
-
-      console.log(unixTime);
 
       this.currentWeather = of(
         data.hourly.reduce(function (prev, curr) {

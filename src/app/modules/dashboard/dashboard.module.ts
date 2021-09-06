@@ -9,9 +9,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
 import { GetLastItemPipe } from 'src/app/shared/pipes/get-last-item.pipe';
+import { ReversePipe } from '../../shared/pipes/reverse.pipe';
 
 @NgModule({
-  declarations: [DashboardComponent, GetLastItemPipe],
+  declarations: [DashboardComponent, GetLastItemPipe, ReversePipe],
   imports: [
     CommonModule,
     DashboardRoutingModule,

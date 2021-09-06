@@ -28,9 +28,6 @@ export class DashboardComponent implements OnInit {
     this.notificationsList = this.db
       .list<DBResponse>('notifications')
       .valueChanges();
-
-    // this.weatherService.getCurrentWeather();
-    // setInterval(this.weatherService.getWeather, 3600000);
   }
 
   ngOnInit(): void {}
