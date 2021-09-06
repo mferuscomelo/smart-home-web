@@ -7,7 +7,7 @@ import {
   canActivate,
   redirectUnauthorizedTo,
   redirectLoggedInTo,
-} from '@angular/fire/compat/auth-guard';
+} from '@angular/fire/auth-guard';
 
 const redirectUnauthorizedToLogin = () =>
   redirectUnauthorizedTo(['/auth/login']);

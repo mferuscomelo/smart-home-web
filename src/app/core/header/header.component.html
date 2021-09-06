@@ -1,0 +1,39 @@
+<section id="search">
+    <div class="input-container">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="What can I help you with?">
+    </div>
+</section>
+
+<section id="status">
+    <mat-card [class]="status">
+        <mat-icon inline="true" class="ok-symbol">check_circle</mat-icon>
+        <mat-icon inline=true class="error-symbol">cancel</mat-icon>
+        <p>Status</p>
+    </mat-card>
+</section>
+
+<section id="date">
+    <p class="current-date">
+        {{ currentDate | date:'hh:mm a EEEE, dd MMMM - y' }}
+    </p>
+</section>
+
+<section id="profile" *ngIf="authService.user | async as user">
+    <div class="dropdown-button">
+        <div class="container" [matMenuTriggerFor]="profileMenu">
+            <p>{{ user.displayName }}</p>
+            <mat-icon aria-hidden="false" aria-label="Profile Dropdown">expand_more</mat-icon>
+        </div>
+    </div>
+    <mat-menu #profileMenu="matMenu" xPosition="before">
+        <button mat-menu-item routerLink="settings">
+            <mat-icon aria-hidden="false" aria-label="Settings Icon">settings</mat-icon>
+            Settings
+        </button>
+        <button mat-menu-item (click)="authService.signOut()">
+            <mat-icon aria-hidden="false" aria-label="Log out icon">logout</mat-icon>
+            Log Out
+        </button>
+    </mat-menu>
+</section>
