@@ -21,16 +21,10 @@
 #temperature,
 #humidity {
     grid-row: 2;
-
+    
     mat-card {
         height: 100%;
-    }
-}
 
-#temperature {
-    grid-column: 1 / 3;
-
-    mat-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -55,13 +49,11 @@
             margin: 0;
             
             &::before {
-                content: "+";
                 font-size: 1.75rem;
                 margin-right: -0.5rem;
             }
 
             &::after {
-                content: "°C";
                 font-size: 1.75rem;
                 margin-left: -0.5rem;
             }
@@ -69,8 +61,26 @@
     }
 }
 
+#temperature {
+    grid-column: 1 / 3;
+
+    mat-card h1 {
+        &::before {
+            content: "+";
+        }
+
+        &::after {
+            content: "°C";
+        }
+    }
+}
+
 #humidity {
     grid-column: 3 / 5;
+
+    mat-card h1::after {
+        content: "%";
+    }
 }
 
 #power {

@@ -35,7 +35,15 @@
 
 <section id="humidity">
     <mat-card>
-        Humidity
+        <div class="icon-container">
+            <mat-icon inline="true">water_drop</mat-icon>
+        </div>
+        <div class="content">
+            <small class="title">Humidity</small>
+            <h1>
+                {{ (humidityList | async | getLastItem)?.message }}
+            </h1>
+        </div>
     </mat-card>
 </section>
 
