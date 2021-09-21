@@ -98,7 +98,7 @@
 }
 
 #weather {
-  grid-row: 1 / 3;
+  grid-row: 1 / -1;
   grid-column: 7 / -1;
 
   .weather-card {
@@ -121,26 +121,9 @@
       margin: 0;
     }
 
-    .temperature {
-      display: flex;
-
-      &::after {
-        content: '°';
-        font-size: 2rem;
-        opacity: 0.5;
-      }
-    }
-
-    .humidity,
-    .rain {
-      & span::after {
-        content: '%';
-      }
-    }
-
     .wind {
       & span::after {
-        content: 'kph';
+        content: "kph";
       }
     }
 
@@ -165,10 +148,6 @@
 
       width: 100%;
 
-      small {
-        opacity: 0.5;
-      }
-
       .humidity,
       .wind,
       .rain {
@@ -176,6 +155,49 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+      }
+
+      small {
+        opacity: 0.5;
+      }
+    }
+
+    .future-weather {
+      display: flex;
+      align-items: flex-start;
+      overflow: scroll;
+      max-width: 100%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      small {
+        line-height: 1;
+      }
+
+      .entry {
+        display: grid;
+        grid-template: 1fr 2rem 1fr 1fr / 1fr;
+        row-gap: 5px;
+        justify-items: center;
+        align-items: center;
+      }
+
+      .time,
+      .rain {
+        opacity: 0.5;
+      }
+
+      // img {
+      //   width: 50px;
+      //   height: auto;
+      // }
+
+      .rain::after {
+        content: "%";
+        font-size: 0.75em;
+        margin-left: 0.1rem;
       }
     }
   }
@@ -243,5 +265,22 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.temperature {
+  display: flex;
+
+  &::after {
+    content: "°";
+    font-size: 0.75em;
+    opacity: 0.5;
+  }
+}
+
+.humidity,
+.rain {
+  & span::after {
+    content: "%";
   }
 }

@@ -87,9 +87,18 @@
                 <span>{{ currentWeather.pop }}</span>
             </div>
         </div>
+        <div class="future-weather" *ngIf="weatherService.futureWeather | async as futureWeather">
+            <div class="entry" *ngFor="let weather of futureWeather">
+                <small class="time">{{ weather.dt * 1000 | date:'HH:mm' }}</small>
+                <img src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}.png"
+                    alt="{{ weather.weather[0].description }}">
+                <small class="temperature">{{ weather.temp | number: '1.0-0' }}</small>
+                <small class="rain">{{ weather.pop }}</small>
+            </div>
+        </div>
     </mat-card>
 </section>
 
-<section id="img">
+<!-- <section id="img">
     <img src="assets/svg/dashboad-img.svg" alt="A person standing next to a phone with statistics">
-</section>
+</section> -->

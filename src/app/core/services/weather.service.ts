@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class WeatherService {
   currentWeather: Observable<Hourly> | undefined;
+  futureWeather: Observable<Hourly[]> | undefined;
 
   constructor(private http: HttpClient) {
     this.getWeather();
@@ -24,13 +25,18 @@ export class WeatherService {
     this.http.get<WeatherData>(url).subscribe((data) => {
       const unixTime = Math.round(new Date().getTime() / 1000);
 
-      this.currentWeather = of(
-        data.hourly.reduce(function (prev, curr) {
-          return Math.abs(curr.dt - unixTime) < Math.abs(prev.dt - unixTime)
-            ? curr
-            : prev;
-        })
-      );
+      // TODO: Only select if time has passed
+      const current = data.hourly.reduce(function (prev, curr) {
+        return Math.abs(curr.dt - unixTime) < Math.abs(prev.dt - unixTime)
+          ? curr
+          : prev;
+      });
+
+      this.currentWeather = of(current);
+
+      const index = data.hourly.indexOf(current);
+      // limit to 24 hours
+      this.futureWeather = of(data.hourly.slice(index + 1));
     });
   }
 }
