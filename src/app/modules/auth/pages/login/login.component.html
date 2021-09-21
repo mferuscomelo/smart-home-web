@@ -1,17 +1,24 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-    <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" placeholder="john@example.com" formControlName="email" required>
-        <mat-error *ngIf="email.invalid">{{ getErrorMessage(email) }}</mat-error>
-    </mat-form-field>
+<mat-card>
+    <mat-card-title>Log In</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="john@example.com" formControlName="email" required>
+                <mat-error *ngIf="email.invalid">{{ getErrorMessage(email) }}</mat-error>
+            </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required>
-        <mat-error *ngIf="password.invalid">{{ getErrorMessage(password) }}</mat-error>
-    </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" required>
+                <mat-error *ngIf="password.invalid">{{ getErrorMessage(password) }}</mat-error>
+            </mat-form-field>
 
-    <button type="submit" mat-flat-button color="primary">Log In</button>
-</form>
+            <button type="submit" mat-flat-button color="primary">Log In</button>
+        </form>
 
-<p *ngIf="errorMessage">{{ errorMessage }}</p>
+        <small>Don't have an account? <a routerLink="/auth/login">Register</a></small>
+
+        <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </mat-card-content>
+</mat-card>
