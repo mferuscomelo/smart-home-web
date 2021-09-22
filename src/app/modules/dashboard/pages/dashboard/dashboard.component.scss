@@ -121,21 +121,15 @@
       margin: 0;
     }
 
-    .wind {
-      & span::after {
-        content: "kph";
-      }
-    }
-
-    .wind,
-    .rain,
-    .humidity {
-      & span::after {
-        font-size: 0.75rem;
-        opacity: 0.5;
-        margin-left: 0.25rem;
-      }
-    }
+    // .wind,
+    // .rain,
+    // .humidity {
+    //   & span::after {
+    //     font-size: 0.75rem;
+    //     opacity: 0.5;
+    //     margin-left: 0.25rem;
+    //   }
+    // }
 
     .location {
       font-weight: 500;
@@ -148,9 +142,9 @@
 
       width: 100%;
 
-      .humidity,
-      .wind,
-      .rain {
+      .humidity-container,
+      .wind-container,
+      .rain-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -193,11 +187,38 @@
       //   width: 50px;
       //   height: auto;
       // }
+    }
 
-      .rain::after {
-        content: "%";
-        font-size: 0.75em;
-        margin-left: 0.1rem;
+    .daily-weather {
+      width: 100%;
+      display: grid;
+      grid-template: 1fr 1fr / 1fr;
+      row-gap: 0.25rem;
+      
+      .entry {
+        display: grid;
+        grid-template: 1fr / 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+
+        .day {
+          width: 75px;
+          text-align: left;
+        }
+
+        img {
+          width: 25px;
+          height: auto;
+        }
+
+        .temp {
+          margin-left: auto;
+          display: flex;
+
+          .divider {
+            margin: 0 0.25rem 0 0.125rem;
+          }
+        }
       }
     }
   }
@@ -273,14 +294,34 @@
 
   &::after {
     content: "°";
-    font-size: 0.75em;
-    opacity: 0.5;
   }
+}
+
+.wind::after {
+  content: "kph";
 }
 
 .humidity,
 .rain {
-  & span::after {
+  &::after {
     content: "%";
   }
 }
+
+.temperature,
+.wind,
+.humidity,
+.rain {
+  &::after {
+    font-size: 0.75em;
+    margin-left: 0.1rem;
+    opacity: 0.5;
+  }
+}
+
+// .humidity,
+// .rain {
+//   & span::after {
+//     content: "%";
+//   }
+// }

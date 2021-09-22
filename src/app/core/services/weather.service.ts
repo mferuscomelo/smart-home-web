@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Hourly, WeatherData } from 'src/app/shared/models/weather-data.model';
+import {
+  Daily,
+  Hourly,
+  WeatherData,
+} from 'src/app/shared/models/weather-data.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 export class WeatherService {
   currentWeather: Observable<Hourly> | undefined;
-  futureWeather: Observable<Hourly[]> | undefined;
+  hourlyWeather: Observable<Hourly[]> | undefined;
+  dailyWeather: Observable<Daily[]> | undefined;
 
   constructor(private http: HttpClient) {
     this.getWeather();
@@ -19,7 +24,7 @@ export class WeatherService {
   }
 
   private getWeather() {
-    const excludeParts = 'current,minutely,daily,alerts';
+    const excludeParts = 'current,minutely,alerts';
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=48.805563&lon=9.213399&exclude=${excludeParts}&appid=${environment.openWeatherApiKey}&units=metric`;
 
     this.http.get<WeatherData>(url).subscribe((data) => {
@@ -32,11 +37,11 @@ export class WeatherService {
           : prev;
       });
 
-      this.currentWeather = of(current);
-
       const index = data.hourly.indexOf(current);
-      // limit to 24 hours
-      this.futureWeather = of(data.hourly.slice(index + 1));
+      // TODO: limit to 24 hours
+      this.hourlyWeather = of(data.hourly.slice(index + 1));
+      this.currentWeather = of(current);
+      this.dailyWeather = of(data.daily.slice(1, 3));
     });
   }
 }
