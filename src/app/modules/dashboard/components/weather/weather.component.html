@@ -1,0 +1,20 @@
+<mat-card class="weather-card" *ngIf="weatherService.currentWeather | async as currentWeather">
+    <img src="https://openweathermap.org/img/wn/{{ currentWeather.weather[0].icon }}@2x.png"
+        alt="{{ currentWeather.weather[0].description }}">
+    <h1 class="temperature">{{ currentWeather.temp | number: '1.0-0' }}</h1>
+    <p class="location">Bad Cannstatt</p>
+    <div class="stats">
+        <div class="wind">
+            <small>Wind</small>
+            <span>{{ currentWeather.wind_speed }}</span>
+        </div>
+        <div class="humidity">
+            <small>Humidity</small>
+            <span>{{ currentWeather.humidity }}</span>
+        </div>
+        <div class="rain">
+            <small>Rain</small>
+            <span>{{ currentWeather.pop }}</span>
+        </div>
+    </div>
+</mat-card>

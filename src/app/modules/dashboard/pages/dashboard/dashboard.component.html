@@ -1,94 +1,14 @@
-<section id="favorite-devices">
-    <div class="header">
-        <h5 class="title">Favorite Devices</h5>
-        <button mat-flat-button color="primary" routerLink="/devices">All Devices</button>
-    </div>
-    <div class="devices">
-        <mat-card class="device">
-            Device 1
-        </mat-card>
-        <mat-card class="device">
-            Device 2
-        </mat-card>
-        <mat-card class="device">
-            Device 3
-        </mat-card>
-        <mat-card class="device">
-            Device 4
-        </mat-card>
-    </div>
-</section>
+<favorite-devices></favorite-devices>
 
-<section id="temperature">
-    <mat-card>
-        <div class="icon-container">
-            <mat-icon inline="true">thermostat</mat-icon>
-        </div>
-        <div class="content">
-            <small class="title">Indoor Temperature</small>
-            <h1>
-                {{ (temperatureList | async | getLastItem)?.message }}
-            </h1>
-        </div>
-    </mat-card>
-</section>
+<temperature-card></temperature-card>
 
-<section id="humidity">
-    <mat-card>
-        <div class="icon-container">
-            <mat-icon inline="true">water_drop</mat-icon>
-        </div>
-        <div class="content">
-            <small class="title">Humidity</small>
-            <h1>
-                {{ (humidityList | async | getLastItem)?.message }}
-            </h1>
-        </div>
-    </mat-card>
-</section>
+<air-quality-card></air-quality-card>
 
-<section id="power">
-    <mat-card>
-        Power
-    </mat-card>
-</section>
+<power-card></power-card>
 
-<section id="notifications">
-    <mat-card class="card-container">
-        <h5 class="title">Notifications</h5>
+<notifications-card></notifications-card>
 
-        <div class="container">
-            <mat-card class="notification" *ngFor="let notification of (notificationsList | async | reverse)">
-                <p class="text">
-                    {{ notification.message }}
-                </p>
-            </mat-card>
-        </div>
-    </mat-card>
-</section>
-
-<section id="weather">
-    <mat-card class="weather-card" *ngIf="weatherService.currentWeather | async as currentWeather">
-        <img src="https://openweathermap.org/img/wn/{{ currentWeather.weather[0].icon }}@2x.png"
-            alt="{{ currentWeather.weather[0].description }}">
-        <h1 class="temperature">{{ currentWeather.temp | number: '1.0-0' }}</h1>
-        <p class="location">Bad Cannstatt</p>
-        <div class="stats">
-            <div class="wind">
-                <small>Wind</small>
-                <span>{{ currentWeather.wind_speed }}</span>
-            </div>
-            <div class="humidity">
-                <small>Humidity</small>
-                <span>{{ currentWeather.humidity }}</span>
-            </div>
-            <div class="rain">
-                <small>Rain</small>
-                <span>{{ currentWeather.pop }}</span>
-            </div>
-        </div>
-    </mat-card>
-</section>
+<weather-card></weather-card>
 
 <section id="img">
     <img src="assets/svg/dashboad-img.svg" alt="A person standing next to a phone with statistics">
