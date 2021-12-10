@@ -1,18 +1,20 @@
 @import "variables";
 @import "theme";
-@import "partials/input";
 @import "partials/buttons";
 @import "partials/typography";
 
-html, body { 
-  height: 100%; 
+html,
+body {
+  height: 100%;
 }
 
-html {font-size: 100%;}
+html {
+  font-size: 100%;
+}
 
-body { 
+body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.75;
   color: $white;
