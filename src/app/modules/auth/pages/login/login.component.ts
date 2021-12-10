@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         );
 
         this.router.navigate(['dashboard']);
-      } catch (error) {
+      } catch (error: any) {
         // TODO: improve messages
         switch (error.code) {
           case 'auth/invalid-email':
