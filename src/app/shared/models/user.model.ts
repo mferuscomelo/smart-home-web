@@ -8,5 +8,5 @@ export interface User {
   isAnonymous: boolean;
   phoneNumber?: string;
   photoURL?: string;
-  devices?: Device[];
+  devices: Device[];
 }
