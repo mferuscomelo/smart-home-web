@@ -24,20 +24,20 @@
       opacity: 0.5;
     }
 
-    h1 {
-      margin: 0;
+    // h1 {
+    //   margin: 0;
 
-      &::before {
-        content: "+";
-        font-size: 1.75rem;
-        margin-right: -0.5rem;
-      }
+    //   &::before {
+    //     content: "+";
+    //     font-size: 1.75rem;
+    //     margin-right: -0.5rem;
+    //   }
 
-      &::after {
-        content: "°C";
-        font-size: 1.75rem;
-        margin-left: -0.5rem;
-      }
-    }
+    //   &::after {
+    //     content: "°C";
+    //     font-size: 1.75rem;
+    //     margin-left: -0.5rem;
+    //   }
+    // }
   }
 }

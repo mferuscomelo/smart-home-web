@@ -4,17 +4,39 @@
     <h1 class="temperature">{{ currentWeather.temp | number: '1.0-0' }}</h1>
     <p class="location">Bad Cannstatt</p>
     <div class="stats">
-        <div class="wind">
+        <div class="wind-container">
             <small>Wind</small>
-            <span>{{ currentWeather.wind_speed }}</span>
+            <span class="wind">{{ currentWeather.wind_speed }}</span>
         </div>
-        <div class="humidity">
+        <div class="humidity-container">
             <small>Humidity</small>
-            <span>{{ currentWeather.humidity }}</span>
+            <span class="humidity">{{ currentWeather.humidity }}</span>
         </div>
-        <div class="rain">
+        <div class="rain-container">
             <small>Rain</small>
-            <span>{{ currentWeather.pop }}</span>
+            <span class="rain">{{ currentWeather.pop }}</span>
+        </div>
+    </div>
+    <div class="future-weather" *ngIf="weatherService.hourlyWeather | async as hourlyWeather">
+        <div class="entry" *ngFor="let weather of hourlyWeather">
+            <small class="time">{{ weather.dt * 1000 | date:'HH:mm' }}</small>
+            <img src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}.png"
+                alt="{{ weather.weather[0].description }}">
+            <small class="temperature">{{ weather.temp | number: '1.0-0' }}</small>
+            <small class="rain">{{ weather.pop }}</small>
+        </div>
+    </div>
+    <div class="daily-weather" *ngIf="weatherService.dailyWeather | async as dailyWeather">
+        <div class="entry" *ngFor="let weather of dailyWeather">
+            <small class="day">{{ weather.dt * 1000 | date:'EEEE' }}</small>
+            <small class="rain">{{ weather.pop }}</small>
+            <img src="https://openweathermap.org/img/wn/{{ weather.weather[0].icon }}.png"
+                alt="{{ weather.weather[0].description }}">
+            <div class="temp">
+                <small class="max temperature">{{ weather.temp.max | number: '1.0-0' }}</small>
+                <small class="divider">/</small>
+                <small class="min temperature">{{ weather.temp.min | number: '1.0-0' }}</small>
+            </div>
         </div>
     </div>
 </mat-card>
