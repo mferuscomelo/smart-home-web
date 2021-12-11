@@ -8,12 +8,30 @@ import { DBResponse } from 'src/app/shared/models/db.model';
   styleUrls: ['./small-data-card.component.scss'],
 })
 export class SmallDataCardComponent implements OnInit {
-  @Input() title!: string;
-  @Input() className!: string;
-  @Input() iconName!: string;
-  @Input() dataList!: Observable<DBResponse[]>;
+  @Input() title: string = '';
+  @Input() className: string = '';
+  @Input() iconName: string = '';
+  @Input() dataList: Observable<DBResponse[]> | undefined;
+  @Input() indicateStatus: boolean = false;
+
+  status: string = '';
+  lastItem: DBResponse | undefined;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataList?.subscribe((data) => {
+      this.lastItem = data.slice(-1)[0];
+
+      const value = parseInt(this.lastItem.value);
+
+      if (value > 70) {
+        this.status = 'red';
+      } else if (value > 60) {
+        this.status = 'yellow';
+      } else {
+        this.status = 'green';
+      }
+    });
+  }
 }

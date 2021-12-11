@@ -1,11 +1,11 @@
-<mat-card>
+<mat-card [class.status-indicator]="indicateStatus" [ngClass]="status">
     <div class="icon-container">
         <mat-icon inline="true">{{ iconName }}</mat-icon>
     </div>
     <div class="content">
         <small class="title">{{ title }}</small>
         <h1 [ngClass]="className">
-            {{ (dataList | async | getLastItem)?.value }}
+            {{ lastItem?.value }}
         </h1>
     </div>
 </mat-card>
