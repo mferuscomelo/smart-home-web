@@ -4,7 +4,7 @@
     <div class="container">
         <mat-card class="notification" *ngFor="let notification of (notificationsList | async | reverse)">
             <p class="text">
-                {{ notification.message }}
+                {{ notification.value }}
             </p>
         </mat-card>
     </div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemperatureComponent } from './temperature.component';
+import { SmallDataCardComponent } from './small-data-card.component';
 
-describe('TemperatureComponent', () => {
-  let component: TemperatureComponent;
-  let fixture: ComponentFixture<TemperatureComponent>;
+describe('SmallDataCardComponent', () => {
+  let component: SmallDataCardComponent;
+  let fixture: ComponentFixture<SmallDataCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemperatureComponent ]
+      declarations: [ SmallDataCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemperatureComponent);
+    fixture = TestBed.createComponent(SmallDataCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

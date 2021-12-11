@@ -1,8 +1,12 @@
 <favorite-devices></favorite-devices>
 
-<temperature-card></temperature-card>
+<small-data-card title="Indoor Temperature" className="temperature" iconName="thermostat" [dataList]="temperatureList"
+    id="temperature-card">
+</small-data-card>
 
-<air-quality-card></air-quality-card>
+<small-data-card title="Air Quality" className="air-quality" iconName="air" [dataList]="airQualityList"
+    id="air-quality-card">
+</small-data-card>
 
 <power-card></power-card>
 

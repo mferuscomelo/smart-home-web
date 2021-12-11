@@ -1,0 +1,28 @@
+mat-card {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .icon-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  mat-icon {
+    font-size: 5rem;
+    margin: -2rem 0;
+  }
+
+  .title {
+    opacity: 0.5;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+}

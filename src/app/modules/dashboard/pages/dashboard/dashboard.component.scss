@@ -9,16 +9,12 @@
   height: 100%;
 }
 
-#img {
-  grid-column: 7 / -1;
-  grid-row: 3 / -1;
+#temperature-card {
+  grid-row: 2;
+  grid-column: 1 / 2;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+#air-quality-card {
+  grid-row: 2;
+  grid-column: 2 / 3;
 }
