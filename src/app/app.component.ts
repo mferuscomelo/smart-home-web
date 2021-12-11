@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { NotificationService } from './core/services/notification.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'smart-home-web';
+  constructor(private notificationService: NotificationService) {
+    this.notificationService.requestPermission();
+    this.notificationService.listen();
+  }
 }
