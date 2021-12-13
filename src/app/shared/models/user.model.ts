@@ -9,4 +9,5 @@ export interface User {
   phoneNumber?: string;
   photoURL?: string;
   devices: Device[];
+  tokens: string[];
 }

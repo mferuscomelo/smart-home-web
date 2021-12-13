@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { User } from 'src/app/shared/models/user.model';
 
-import { Observable, of } from 'rxjs';
+import { firstValueFrom, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import firebase from 'firebase/app';
@@ -82,7 +82,7 @@ export class AuthService {
   private async updateUserData(user: firebase.User) {
     // TODO: update user data after custom email action handler
     // TODO: simplify
-    const data: User = {
+    const data: Partial<User> = {
       uid: user.uid,
       displayName: user.displayName || '',
       email: user.email!,
@@ -90,7 +90,6 @@ export class AuthService {
       isAnonymous: user.isAnonymous,
       phoneNumber: user.phoneNumber || '',
       photoURL: user.photoURL || '',
-      devices: []
     };
 
     if (!user.emailVerified) {
@@ -100,7 +99,24 @@ export class AuthService {
     }
 
     return this.firestore
-      .doc<User>(`users/${user.uid}`)
+      .doc<Partial<User>>(`users/${user.uid}`)
       .set(data, { merge: true });
+  }
+
+  async addToken(token: string) {
+    const uid = await this.getUserID();
+
+    if (uid) {
+      this.firestore
+        .collection('users')
+        .doc(uid)
+        .update({
+          tokens: firebase.firestore.FieldValue.arrayUnion(token),
+        });
+    }
+  }
+
+  private async getUserID() {
+    return (await firstValueFrom(this.user))?.uid;
   }
 }
