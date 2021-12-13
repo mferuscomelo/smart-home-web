@@ -6,7 +6,8 @@
                 <mat-icon>download</mat-icon>
                 Install App
             </button>
-            <button mat-flat-button color="primary">
+            <button mat-flat-button color="primary" matBadge="!" matBadgeColor="accent"
+                [matBadgeHidden]="!pwaService.updateAvailable" (click)="pwaService.updatePWA()">
                 <mat-icon>refresh</mat-icon>
                 Update App
             </button>

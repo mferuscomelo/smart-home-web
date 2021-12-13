@@ -8,6 +8,7 @@ import { BeforeInstallPromptEvent } from 'src/app/shared/models/before-install-p
 })
 export class PwaService {
   deferredPrompt?: BeforeInstallPromptEvent;
+  updateAvailable: boolean = false;
 
   constructor(private appRef: ApplicationRef, private updates: SwUpdate) {
     // Allow the app to stabilize first, before starting
@@ -18,19 +19,29 @@ export class PwaService {
     const everySixHours$ = interval(6 * 60 * 60 * 1000);
     const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
 
-    everySixHoursOnceAppIsStable$.subscribe(() =>
-      this.updates.checkForUpdate()
-    );
+    everySixHoursOnceAppIsStable$.subscribe(async () => {
+      this.updateAvailable = await this.updates.checkForUpdate();
+    });
   }
 
-  installPWA() {
+  async installPWA() {
     this.deferredPrompt?.prompt();
-    this.deferredPrompt?.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome == 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-    });
+    const choiceResult = await this.deferredPrompt?.userChoice;
+    if (choiceResult?.outcome == 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+  }
+
+  async updatePWA() {
+    console.log('Checking for updates...');
+    const updated = await this.updates.activateUpdate();
+    if (updated) {
+      console.log('PWA Updated');
+    } else {
+      console.log('No update available / Not updated');
+    }
+    document.location.reload();
   }
 }

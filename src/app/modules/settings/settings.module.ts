@@ -6,6 +6,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -15,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatBadgeModule,
   ],
 })
 export class SettingsModule {}
