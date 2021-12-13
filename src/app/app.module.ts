@@ -42,6 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { NotificationService } from './core/services/notification.service';
+import { PwaService } from './core/services/pwa.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { NotificationService } from './core/services/notification.service';
     }),
   ],
   providers: [
+    PwaService,
     NotificationService,
     ScreenTrackingService,
     UserTrackingService,

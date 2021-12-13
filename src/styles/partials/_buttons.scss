@@ -2,6 +2,7 @@ button {
   font-size: 1rem !important;
 
   &:not(.mat-menu-item) {
-    padding: 0.25rem !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
   }
 }

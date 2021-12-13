@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './pages/settings/settings.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    SettingsComponent
-  ],
+  declarations: [SettingsComponent],
   imports: [
     CommonModule,
-    SettingsRoutingModule
-  ]
+    SettingsRoutingModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
 })
-export class SettingsModule { }
+export class SettingsModule {}
