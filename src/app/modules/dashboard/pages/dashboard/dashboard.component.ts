@@ -34,12 +34,14 @@ export class DashboardComponent implements OnInit {
   selectAirQualityChart() {
     this.aqSelected = true;
     this.tempSelected = false;
+    this.chartTitle = 'Air Quality';
     this.chartData = this.airQualityList;
   }
 
   selectTemperatureChart() {
     this.aqSelected = false;
     this.tempSelected = true;
+    this.chartTitle = 'Indoor Temperature';
     this.chartData = this.temperatureList;
   }
 }
