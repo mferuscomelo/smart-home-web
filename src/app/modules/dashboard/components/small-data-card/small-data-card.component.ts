@@ -13,6 +13,7 @@ export class SmallDataCardComponent implements OnInit {
   @Input() iconName: string = '';
   @Input() dataList: Observable<DBResponse[]> | undefined;
   @Input() indicateStatus: boolean = false;
+  @Input() selected: boolean = false;
 
   status: string = '';
   lastItem: DBResponse | undefined;

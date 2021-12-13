@@ -1,7 +1,7 @@
 @import "src/styles/variables";
 
 mat-card {
-    background: linear-gradient(140deg, $fg-gray 25%, $fg-purple 100%) !important;
+    background: linear-gradient(140deg, $fg-gray 25%, $dark-purple 100%) !important;
     min-width: 300px;
 
     mat-card-title {

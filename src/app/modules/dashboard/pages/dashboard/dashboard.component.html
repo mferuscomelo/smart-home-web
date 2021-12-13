@@ -1,18 +1,19 @@
 <favorite-devices></favorite-devices>
 
-<small-data-card title="Indoor Temperature" className="temperature" iconName="thermostat" [dataList]="temperatureList"
-    id="temperature-card">
-</small-data-card>
-
 <small-data-card title="Air Quality" className="air-quality" iconName="air" [dataList]="airQualityList"
-    id="air-quality-card" [indicateStatus]="true">
+    id="air-quality-card" [indicateStatus]="true" (click)="selectAirQualityChart()" [selected]="aqSelected">
 </small-data-card>
 
-<power-card></power-card>
+<small-data-card title="Indoor Temperature" className="temperature" iconName="thermostat" [dataList]="temperatureList"
+    id="temperature-card" (click)="selectTemperatureChart()" [selected]="tempSelected">
+</small-data-card>
+
+<chart-card [chartData]="chartData" [title]="chartTitle"></chart-card>
 
 <notifications-card></notifications-card>
 
 <weather-card></weather-card>
+
 <!-- 
 <section id="img">
     <img src="assets/svg/dashboad-img.svg" alt="A person standing next to a phone with statistics">
