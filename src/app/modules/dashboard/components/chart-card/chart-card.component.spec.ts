@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PowerComponent } from './power.component';
+import { ChartCardComponent } from './chart-card.component';
 
-describe('PowerComponent', () => {
-  let component: PowerComponent;
-  let fixture: ComponentFixture<PowerComponent>;
+describe('ChartCardComponent', () => {
+  let component: ChartCardComponent;
+  let fixture: ComponentFixture<ChartCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PowerComponent ]
+      declarations: [ ChartCardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PowerComponent);
+    fixture = TestBed.createComponent(ChartCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

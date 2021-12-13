@@ -42,4 +42,5 @@ $smart-home-web-theme: mat.define-dark-theme(
 .mat-card,
 button {
   border-radius: 0.75rem !important;
+  color: $white !important;
 }

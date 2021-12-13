@@ -13,8 +13,9 @@ import { ReversePipe } from '../../shared/pipes/reverse.pipe';
 import { FavoriteDevicesComponent } from './components/favorite-devices/favorite-devices.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { WeatherComponent } from './components/weather/weather.component';
-import { PowerComponent } from './components/power/power.component';
 import { SmallDataCardComponent } from './components/small-data-card/small-data-card.component';
+import { ChartCardComponent } from './components/chart-card/chart-card.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,8 @@ import { SmallDataCardComponent } from './components/small-data-card/small-data-
     FavoriteDevicesComponent,
     NotificationsComponent,
     WeatherComponent,
-    PowerComponent,
     SmallDataCardComponent,
+    ChartCardComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +34,7 @@ import { SmallDataCardComponent } from './components/small-data-card/small-data-
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    NgChartsModule,
   ],
 })
 export class DashboardModule {}

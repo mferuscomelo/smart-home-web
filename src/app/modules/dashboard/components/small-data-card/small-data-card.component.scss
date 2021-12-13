@@ -2,6 +2,7 @@
 
 mat-card {
   height: 100%;
+  cursor: pointer;
 
   display: flex;
   justify-content: space-evenly;
@@ -40,5 +41,10 @@ mat-card {
     &.red {
       border: 5px solid $red;
     }
+  }
+
+  &.selected {
+    color: white !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(135deg, $light-blue, $light-purple) !important;
   }
 }
