@@ -7,7 +7,7 @@ import { BeforeInstallPromptEvent } from 'src/app/shared/models/before-install-p
   providedIn: 'root',
 })
 export class PwaService {
-  private deferredPrompt?: BeforeInstallPromptEvent;
+  deferredPrompt?: BeforeInstallPromptEvent;
 
   constructor(private appRef: ApplicationRef, private updates: SwUpdate) {
     // Allow the app to stabilize first, before starting
@@ -21,15 +21,9 @@ export class PwaService {
     everySixHoursOnceAppIsStable$.subscribe(() =>
       this.updates.checkForUpdate()
     );
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      this.deferredPrompt = e;
-    });
   }
 
   installPWA() {
-    console.log(this.deferredPrompt);
     this.deferredPrompt?.prompt();
     this.deferredPrompt?.userChoice.then((choiceResult) => {
       if (choiceResult.outcome == 'accepted') {
