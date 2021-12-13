@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { last } from 'rxjs/operators';
-import { WeatherService } from 'src/app/core/services/weather.service';
 import { DBResponse } from 'src/app/shared/models/db.model';
 
 @Component({
@@ -12,25 +10,16 @@ import { DBResponse } from 'src/app/shared/models/db.model';
 })
 export class DashboardComponent implements OnInit {
   temperatureList: Observable<DBResponse[]>;
-  humidityList: Observable<DBResponse[]>;
-  notificationsList: Observable<DBResponse[]>;
+  airQualityList: Observable<DBResponse[]>;
 
-  constructor(
-    private db: AngularFireDatabase,
-    public weatherService: WeatherService
-  ) {
+  constructor(private db: AngularFireDatabase) {
     this.temperatureList = this.db
       .list<DBResponse>('temperature')
       .valueChanges();
 
-    this.humidityList = this.db.list<DBResponse>('humidity').valueChanges();
-
-    this.notificationsList = this.db
-      .list<DBResponse>('notifications')
+    this.airQualityList = this.db
+      .list<DBResponse>('air_quality')
       .valueChanges();
-
-    // this.weatherService.getCurrentWeather();
-    // setInterval(this.weatherService.getWeather, 3600000);
   }
 
   ngOnInit(): void {}

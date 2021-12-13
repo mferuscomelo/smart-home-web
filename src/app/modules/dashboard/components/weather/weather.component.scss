@@ -1,0 +1,114 @@
+:host {
+  grid-row: 1 / -1;
+  grid-column: 7 / -1;
+}
+
+.weather-card {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    margin: -1rem 0;
+  }
+
+  h1,
+  small,
+  p,
+  span {
+    text-align: center;
+    margin: 0;
+  }
+
+  .location {
+    font-weight: 500;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+
+    .humidity-container,
+    .wind-container,
+    .rain-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    small {
+      opacity: 0.5;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .future-weather {
+    display: flex;
+    align-items: flex-start;
+    overflow: scroll;
+    max-width: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    small {
+      line-height: 1;
+    }
+
+    .entry {
+      display: grid;
+      grid-template: 1fr 2rem 1fr 1fr / 1fr;
+      row-gap: 5px;
+      justify-items: center;
+      align-items: center;
+      margin: 0 0.75rem;
+    }
+
+    .time,
+    .rain {
+      opacity: 0.5;
+    }
+  }
+
+  .daily-weather {
+    width: 100%;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+    row-gap: 0.25rem;
+
+    .entry {
+      display: grid;
+      grid-template: 1fr / 1fr 1fr 1fr 1fr;
+      justify-items: center;
+      align-items: center;
+
+      .day {
+        width: 75px;
+        text-align: left;
+      }
+
+      img {
+        width: 25px;
+        height: auto;
+      }
+
+      .temp {
+        margin-left: auto;
+        display: flex;
+
+        .divider {
+          margin: 0 0.25rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}

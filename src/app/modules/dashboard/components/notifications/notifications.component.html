@@ -1,0 +1,11 @@
+<mat-card class="card-container">
+    <h5 class="title">Notifications</h5>
+
+    <div class="container">
+        <mat-card class="notification" *ngFor="let notification of (notificationsList | async | reverse)">
+            <p class="text">
+                {{ notification.value }}
+            </p>
+        </mat-card>
+    </div>
+</mat-card>

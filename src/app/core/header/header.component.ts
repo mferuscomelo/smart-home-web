@@ -13,9 +13,14 @@ export class HeaderComponent implements OnInit {
 
   constructor(public authService: AuthService) {
     this.authService.user.subscribe((user) => {
-      this.status = user?.devices?.every((x) => x.status == 'OK')
-        ? 'ok'
-        : 'error';
+
+      if(user?.devices) {
+        this.status = user.devices.every((x) => x.status == 'OK')
+          ? 'ok'
+          : 'error';
+      } else {
+        this.status = 'ok';
+      }
     });
 
     setInterval(() => {

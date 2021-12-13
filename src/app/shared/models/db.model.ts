@@ -1,4 +1,4 @@
 export interface DBResponse {
-  message: string;
+  value: string;
   timestamp: string;
 }

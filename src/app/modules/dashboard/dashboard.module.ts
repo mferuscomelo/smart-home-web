@@ -9,9 +9,24 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
 import { GetLastItemPipe } from 'src/app/shared/pipes/get-last-item.pipe';
+import { ReversePipe } from '../../shared/pipes/reverse.pipe';
+import { FavoriteDevicesComponent } from './components/favorite-devices/favorite-devices.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { WeatherComponent } from './components/weather/weather.component';
+import { PowerComponent } from './components/power/power.component';
+import { SmallDataCardComponent } from './components/small-data-card/small-data-card.component';
 
 @NgModule({
-  declarations: [DashboardComponent, GetLastItemPipe],
+  declarations: [
+    DashboardComponent,
+    GetLastItemPipe,
+    ReversePipe,
+    FavoriteDevicesComponent,
+    NotificationsComponent,
+    WeatherComponent,
+    PowerComponent,
+    SmallDataCardComponent,
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,

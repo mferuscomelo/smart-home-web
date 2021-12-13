@@ -90,6 +90,7 @@ export class AuthService {
       isAnonymous: user.isAnonymous,
       phoneNumber: user.phoneNumber || '',
       photoURL: user.photoURL || '',
+      devices: []
     };
 
     if (!user.emailVerified) {
